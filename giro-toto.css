@@ -1,0 +1,2 @@
+* {  animation: rot 3s infinite linear;}
+ @keyframes rot {    from {        transform: rotate(0deg)                   translate(-550px)                   rotate(0deg);    }    to {        transform: rotate(360deg)                   translate(-550px)                    rotate(-360deg);    }}
