@@ -1,0 +1,66 @@
+class Monobomba {
+	constructor(monedas) {
+		this.monedas = monedas;
+		if ( monedas <= 10 ) {
+			this.explosion = .1
+			this.velocidad = 1.0
+		}
+		if ( monedas > 10 && monedas < 101 ){
+			this.explosion = .12
+			this.velocidad = .8
+		} else if ( monedas > 100 && monedas < 501 ) {
+			this.explosion = .15
+			this.velocidad = .5
+		} else if ( monedas > 500 && monedas < 1001 ) {
+			this.explosion = .2
+			this.velocidad = .2
+		} else if ( monedas > 1000 && monedas < 2501 ) {
+			this.explosion = .25
+			this.velocidad = .01
+		} else if ( monedas > 2500 && monedas <= 5000 ) {
+			this.explosion = .3
+			this.velocidad = .04
+		}
+	}
+}
+
+var multiplier = 1.0
+
+var MAX_MULTIPLIER = 5.0
+
+var monobomba;
+
+
+
+var onClickInit = () => init(document.getElementById("monedas").value)
+
+var init = (coin) => {
+	monobomba = new Monobomba(coin)
+	document.getElementById("init").setAttribute("disabled", true)
+	
+}
+
+
+
+<html>
+	<head>
+
+	</head>
+	<body>
+		<div>
+			<div>
+				
+			</div>
+			<div>
+				<div>
+					<input type="number" id="monedas" min="0" max="5000" />
+				</div>
+				<div>
+					<button id="init" onclick="onClickInit">Iniciar</button>
+					<button id="next" onclick="onClickNext" disabled>Siguiente</button>
+					<button id="quit" onclick="onClickQuit" disabled>Salir</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
